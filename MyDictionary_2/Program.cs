@@ -6,7 +6,18 @@ namespace MyDictionary_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MyDictionary<string, string> myDictionary = new MyDictionary<string, string>();
+            myDictionary.AddDict("Fazil", "Gurban");
+            myDictionary.AddDict("Murad", "Isayev");
+
+            
+            Console.WriteLine(myDictionary.keysLength);
+
+            foreach (var item in myDictionary.tkey)
+            {
+                Console.WriteLine(item);
+            }
+
         }
     }
 
@@ -20,8 +31,8 @@ namespace MyDictionary_2
         public MyDictionary()
         {
             // MyDictionary classini cagiranda constructor metodu iwe duwur ve ilk yaranacaq  arrayleri yaziriq
-            Tkey[] tkeys = new Tkey[0];
-            Tvalue[] tvalues = new Tvalue[0];
+            tkeys = new Tkey[0];
+            tvalues = new Tvalue[0];
         }
         public void AddDict(Tkey tkey, Tvalue tvalue)
         {
@@ -50,6 +61,24 @@ namespace MyDictionary_2
             // arrayin son xanasi bos oldugu ucun  array.length-1 dedikde en sonuncu bow yere elave etmis oluruq
             tkeys[tkeys.Length - 1] = tkey;
             tvalues[tvalues.Length - 1] = tvalue;
+        }
+
+        public int keysLength
+        {
+            get { return tkeys.Length; }     
+        }
+        public int valuesLength
+        {
+            get { return tvalues.Length; }
+        }
+
+        public Tkey[] tkey
+        {
+            get { return tkeys; }
+        }
+        public Tvalue[] tvalue
+        {
+            get { return tvalues; }
         }
 
     }
